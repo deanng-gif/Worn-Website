@@ -1,0 +1,197 @@
+:root {
+  --green: #1F3D2B;
+  --cream: #F4F1E8;
+  --sage: #C9D6C8;
+  --accent: #D9B26A;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--green);
+  color: var(--cream);
+  font-family: 'Inter Tight', system-ui, sans-serif;
+}
+
+a { color: var(--cream); }
+
+main {
+  position: relative;
+  min-height: 100vh;
+  padding: 104px 24px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  text-align: center;
+}
+
+/* Top-left home button */
+.home-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid rgba(201, 214, 200, 0.45);
+  border-radius: 999px;
+  text-decoration: none;
+}
+.home-btn span {
+  font-family: 'Yellowtail', cursive;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+/* Top-right profile button */
+.profile-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(201, 214, 200, 0.45);
+  border-radius: 999px;
+}
+.profile-tip {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  white-space: nowrap;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: var(--sage);
+  color: var(--green);
+  font-size: 0.85rem;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+  transition: opacity .15s, transform .15s;
+}
+.profile-btn:hover .profile-tip,
+.profile-btn:focus-visible .profile-tip { opacity: 1; transform: translateY(0); }
+
+/* Gold outline on hover */
+.ring {
+  outline: 3px solid transparent;
+  outline-offset: 5px;
+  transition: outline-color .15s;
+}
+.ring:hover, .ring:focus-visible { outline-color: var(--accent); }
+
+/* Header */
+.title {
+  margin: 0;
+  font-family: 'Yellowtail', cursive;
+  font-weight: 400;
+  font-size: clamp(3rem, 9vw, 7.5rem);
+  line-height: 1;
+}
+.motto {
+  margin: -4px 0 0;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+.name {
+  margin: 0;
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+.rule-short { width: 48px; height: 3px; background: var(--accent); border-radius: 2px; }
+.rule-wide { width: 100%; max-width: 960px; height: 3px; margin-top: 44px; background: var(--accent); border-radius: 2px; }
+
+/* Photos */
+.photos {
+  width: 100%;
+  max-width: 960px;
+  margin-top: 44px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+.photos img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Sections */
+.sections {
+  width: 100%;
+  max-width: 960px;
+  margin-top: 44px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  align-items: start;
+}
+.section { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+
+h2, .cta {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: clamp(1.25rem, 2.7vw, 2rem);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+}
+h2 { margin: 0; }
+.script {
+  font-family: 'Yellowtail', cursive;
+  font-weight: 400;
+  font-size: 1.25em;
+  letter-spacing: 0;
+}
+
+.box {
+  margin: 0;
+  width: 100%;
+  max-width: 640px;
+  padding: 24px 28px;
+  border: 1px solid var(--sage);
+  border-radius: 12px;
+  background: var(--sage);
+  color: var(--green);
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+ol.box {
+  padding-left: 52px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 44px;
+  padding: 24px 40px;
+  border: 1px solid var(--sage);
+  border-radius: 12px;
+  background: var(--sage);
+  color: var(--green);
+  text-decoration: none;
+}
+
+.page-title {
+  margin: 0;
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+}
