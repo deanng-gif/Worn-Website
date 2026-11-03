@@ -195,3 +195,85 @@ ol.box {
   letter-spacing: 0.03em;
   line-height: 1.1;
 }
+
+/* Shared form + page pieces (Get Started, Plan, Profile) */
+.step { margin: 0; font-size: 0.95rem; color: var(--sage); letter-spacing: 0.04em; }
+.intro { margin: 0; max-width: 560px; font-size: clamp(1rem, 1.6vw, 1.25rem); font-style: italic; }
+.panel {
+  width: 100%;
+  padding: 24px;
+  border: 1px solid var(--sage);
+  border-radius: 12px;
+  background: var(--sage);
+  color: var(--green);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.ring:focus-within { outline-color: var(--accent); }
+.field { display: flex; flex-direction: column; gap: 4px; font-weight: 600; }
+.field small { font-size: 0.9rem; font-weight: 400; }
+.field input, .field select {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid rgba(31, 61, 43, 0.45);
+  border-radius: 8px;
+  background: var(--cream);
+  color: var(--green);
+  font-family: 'Inter Tight', system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+}
+.field input[type="file"] { padding: 8px 12px; border-style: dashed; }
+.row2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.pw-status { min-height: 22px; margin-top: -8px; font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+.pw-status.ok { color: var(--green); }
+.pw-status.bad { color: #8A1F14; }
+.btn-dark {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 44px; padding: 0 20px; border: 0; border-radius: 10px;
+  background: var(--green); color: var(--cream); text-decoration: none;
+  font-family: 'Inter Tight', system-ui, sans-serif; font-size: 1rem; font-weight: 500; cursor: pointer;
+}
+.btn-outline {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px;
+  border: 1px solid rgba(201, 214, 200, 0.45); border-radius: 999px;
+  color: var(--cream); text-decoration: none; font-size: 0.95rem; font-weight: 500;
+}
+.link-quiet { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 12px; color: var(--sage); font-size: 0.95rem; }
+.two-col {
+  width: 100%; max-width: 960px; margin-top: 24px;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px; align-items: start; text-align: left;
+}
+.two-col > section { display: flex; flex-direction: column; gap: 20px; }
+.two-col h2 { text-align: center; }
+.profile-btn.current { border-color: var(--accent); background: rgba(217, 178, 106, 0.15); }
+
+/* Plan page */
+.plan {
+  padding: 20px 24px; border: 3px solid var(--sage); border-radius: 12px;
+  background: var(--sage); color: var(--green);
+  display: flex; align-items: center; gap: 16px; cursor: pointer;
+}
+.plan:has(input:checked) { border-color: var(--accent); }
+.plan input { width: 22px; height: 22px; margin: 0; accent-color: var(--green); }
+.plan-info { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.plan-name { font-family: 'Sora', system-ui, sans-serif; font-size: 1.15rem; font-weight: 600; }
+.plan-price { font-family: 'Sora', system-ui, sans-serif; font-size: 1.35rem; font-weight: 700; }
+.plan-price small { font-size: 0.9rem; font-weight: 500; }
+.includes { padding: 20px 24px; border: 1px solid rgba(201, 214, 200, 0.45); border-radius: 12px; }
+.includes ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.includes li { display: flex; align-items: center; gap: 10px; }
+.sum-row { display: flex; justify-content: space-between; gap: 12px; }
+.sum-total { font-family: 'Sora', system-ui, sans-serif; font-size: 1.25rem; font-weight: 700; }
+.divider { height: 1px; background: rgba(31, 61, 43, 0.3); }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+/* Profile page */
+.avatar { width: 112px; height: 112px; border-radius: 999px; background: var(--sage); color: var(--green); display: flex; align-items: center; justify-content: center; }
+.slots3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.slot { aspect-ratio: 3 / 4; border: 2px dashed rgba(31, 61, 43, 0.4); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; }
+.tryons { width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
+.tryon { aspect-ratio: 3 / 4; border: 2px dashed rgba(201, 214, 200, 0.5); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--sage); font-size: 0.95rem; }

@@ -17,14 +17,59 @@
       <span>Worn</span>
     </a>
   </nav>
-  <a href="#" class="profile-btn" aria-label="My Profile">
+  <a href="profile.html" class="profile-btn" aria-label="My Profile">
     <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg>
     <span class="profile-tip" aria-hidden="true">My Profile</span>
   </a>
 
+  <p class="step">Step 1 of 2</p>
   <h1 class="page-title">Get Started</h1>
   <div class="rule-short"></div>
-  <p class="box">[Sign-up or onboarding content goes here.]</p>
+  <p class="intro">Tell us a little about yourself so Worn can show you how clothes will fit.</p>
+
+  <form style="margin-top: 24px; width: 100%; max-width: 560px; display: flex; flex-direction: column; align-items: center; gap: 32px">
+    <section class="section" style="width: 100%">
+      <h2>About You</h2>
+      <div class="panel ring">
+        <div class="row2">
+          <label class="field">First name<input type="text" name="firstName" autocomplete="given-name"></label>
+          <label class="field">Last name<input type="text" name="lastName" autocomplete="family-name"></label>
+        </div>
+        <label class="field">Email<input type="email" name="email" autocomplete="email" placeholder="you@example.com"></label>
+        <label class="field">Create password<small>At least 8 characters</small><input type="password" id="password" name="password" autocomplete="new-password" minlength="8"></label>
+        <label class="field">Confirm password<input type="password" id="confirm" name="confirmPassword" autocomplete="new-password" minlength="8" aria-describedby="pw-status"></label>
+        <div id="pw-status" class="pw-status" aria-live="polite"></div>
+        <label class="field">Preferred clothing fit
+          <select name="fit"><option>Regular</option><option>Slim</option><option>Relaxed</option><option>Oversized</option></select>
+        </label>
+      </div>
+    </section>
+    <a href="checkout.html" class="cta ring" style="margin-top: 0">Save &amp; Continue</a>
+  </form>
 </main>
+<script>
+  // Live check that the two password fields match.
+  (function () {
+    var pw = document.getElementById('password');
+    var cf = document.getElementById('confirm');
+    var out = document.getElementById('pw-status');
+    var check = '<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>';
+    var cross = '<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>';
+    function update() {
+      var a = pw.value, b = cf.value;
+      if (a.length > 0 && a.length < 8) {
+        out.className = 'pw-status bad'; out.innerHTML = cross + 'Password must be at least 8 characters';
+      } else if (b.length === 0) {
+        out.className = 'pw-status'; out.innerHTML = '';
+      } else if (a === b) {
+        out.className = 'pw-status ok'; out.innerHTML = check + 'Passwords match';
+      } else {
+        out.className = 'pw-status bad'; out.innerHTML = cross + "Passwords don't match";
+      }
+    }
+    pw.addEventListener('input', update);
+    cf.addEventListener('input', update);
+  })();
+</script>
 </body>
 </html>
