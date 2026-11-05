@@ -22,17 +22,18 @@ a{color:#1A1A1A}a:hover{color:#000000}
 .ed-plan:hover{border-color:#8A5A2B !important}
 .ed-plan:focus-within{outline-color:#1A1A1A}
 @media (prefers-reduced-motion: reduce){.ed-link,.ed-btn,.ed-plan{transition:none}}
+@media (max-width: 640px){.masthead{grid-template-columns:1fr auto !important;row-gap:0 !important}.masthead .wordmark{grid-column:1 / -1;grid-row:1}}
 </style>
 </head>
 <body>
 <div style="min-height: 100vh; background: #F6F2EA; color: #1A1A1A; font-family: 'Inter Tight', system-ui, sans-serif">
 
 <header style="max-width: 1280px; margin: 0 auto; box-sizing: border-box; padding: 16px 32px 0">
-<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: center; gap: 12px; padding-bottom: 14px">
+<div class="masthead" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: center; gap: 12px; padding-bottom: 14px">
 <nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 4px 20px">
 <a href="index.html" class="ed-link" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #1A1A1A">Home</a>
 </nav>
-<a href="index.html" aria-label="Worn home" style="justify-self: center; display: inline-flex; align-items: center; min-height: 44px; color: #1A1A1A; text-decoration: none; font-family: 'Yellowtail', cursive; font-size: clamp(2.4rem, 5vw, 3.6rem); line-height: 1">Worn</a>
+<a href="index.html" aria-label="Worn home" class="wordmark" style="justify-self: center; display: inline-flex; align-items: center; min-height: 44px; color: #1A1A1A; text-decoration: none; font-family: 'Yellowtail', cursive; font-size: clamp(2.4rem, 5vw, 3.6rem); line-height: 1">Worn</a>
 <div style="justify-self: end; display: flex; align-items: center; gap: 16px">
 <a href="get-started.html" class="ed-link" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #1A1A1A">Get Started</a>
 <a href="profile.html" class="profile-btn" aria-label="My Profile" style="position: relative; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; box-sizing: border-box; border: 1px solid #1A1A1A; border-radius: 999px; color: #1A1A1A; text-decoration: none">
