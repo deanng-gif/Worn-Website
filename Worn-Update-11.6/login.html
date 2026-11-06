@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Log In | Worn</title>
+<meta name="description" content="Worn lets you try on clothes before you buy them with an AI rendering on your own body.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,400;1,400&family=Inter+Tight:wght@400;500;600&family=Yellowtail&display=swap">
+<style>
+body{margin:0;background:#F6F2EA}
+a{color:#1A1A1A}a:hover{color:#000000}
+.profile-tip{position:absolute;top:calc(100% + 8px);right:0;white-space:nowrap;padding:6px 10px;background:#1A1A1A;color:#F6F2EA;font-family:'Inter Tight',system-ui,sans-serif;font-size:0.8rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;opacity:0;transform:translateY(-4px);pointer-events:none;transition:opacity .15s,transform .15s;z-index:2}
+.profile-btn:hover .profile-tip,.profile-btn:focus-visible .profile-tip{opacity:1;transform:translateY(0)}
+.ed-link{text-decoration:none;background-image:linear-gradient(currentColor,currentColor);background-size:0 1px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .25s}
+.ed-link:hover,.ed-link:focus-visible{background-size:100% 1px}
+.ed-btn{transition:background-color .2s,border-color .2s;outline:2px solid transparent;outline-offset:4px}
+.ed-btn:hover{background-color:#8A5A2B !important;border-color:#8A5A2B !important}
+.ed-btn:focus-visible{outline-color:#1A1A1A}
+.ed-field{transition:border-color .2s}
+.ed-field:focus{outline:none;border-bottom-color:#8A5A2B !important;box-shadow:0 1px 0 0 #8A5A2B}
+@media (prefers-reduced-motion: reduce){.ed-link,.ed-btn,.ed-field{transition:none}}
+@media (max-width: 640px){.masthead{grid-template-columns:1fr auto !important;row-gap:0 !important}.masthead .wordmark{grid-column:1 / -1;grid-row:1}}
+</style>
+</head>
+<body>
+<div style="min-height: 100vh; background: #F6F2EA; color: #1A1A1A; font-family: 'Inter Tight', system-ui, sans-serif">
+
+<header style="max-width: 1280px; margin: 0 auto; box-sizing: border-box; padding: 16px 32px 0">
+<div class="masthead" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: center; gap: 12px; padding-bottom: 14px">
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 4px 20px">
+<a href="index.html" class="ed-link" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #1A1A1A">Home</a>
+</nav>
+<a href="index.html" aria-label="Worn home" class="wordmark" style="justify-self: center; display: inline-flex; align-items: center; min-height: 44px; color: #1A1A1A; text-decoration: none; font-family: 'Yellowtail', cursive; font-size: clamp(2.4rem, 5vw, 3.6rem); line-height: 1">Worn</a>
+<div style="justify-self: end; display: flex; align-items: center; gap: 16px">
+<a href="get-started.html" class="ed-link" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #1A1A1A">Get Started</a>
+<a href="profile.html" class="profile-btn" aria-label="My Profile" style="position: relative; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; box-sizing: border-box; border: 1px solid #1A1A1A; border-radius: 999px; color: #1A1A1A; text-decoration: none">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg>
+<span class="profile-tip" aria-hidden="true">My Profile</span>
+</a>
+</div>
+</div>
+<div style="border-top: 1px solid #1A1A1A; border-bottom: 1px solid #1A1A1A; height: 3px"></div>
+</header>
+
+<main style="max-width: 560px; margin: 0 auto; box-sizing: border-box; padding: clamp(48px, 7vw, 96px) 32px clamp(64px, 8vw, 112px); display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center">
+<p style="margin: 0; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #8A5A2B">Welcome back</p>
+<h1 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: clamp(3rem, 7vw, 5.4rem); line-height: 1; letter-spacing: -0.015em">Log <em>In</em></h1>
+<div style="width: 64px; height: 1px; background: #1A1A1A"></div>
+<form id="login-form" style="margin: 32px 0 0; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 40px">
+<section style="width: 100%; box-sizing: border-box; padding: clamp(28px, 4vw, 44px); border: 1px solid #1A1A1A; background: #FBF8F2; text-align: left; display: flex; flex-direction: column; gap: 26px">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase">Email<input class="ed-field" type="email" name="email" required autocomplete="email" placeholder="you@example.com" style="min-height: 44px; box-sizing: border-box; padding: 0 2px; border: 0; border-bottom: 1px solid #1A1A1A; background: transparent; color: #1A1A1A; font-family: 'Source Serif 4', Georgia, serif; font-size: 1.2rem; letter-spacing: 0; text-transform: none"></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase">Password<input class="ed-field" type="password" name="password" required autocomplete="current-password" style="min-height: 44px; box-sizing: border-box; padding: 0 2px; border: 0; border-bottom: 1px solid #1A1A1A; background: transparent; color: #1A1A1A; font-family: 'Source Serif 4', Georgia, serif; font-size: 1.2rem; letter-spacing: 0; text-transform: none"></label>
+</section>
+<button type="submit" id="login-btn" class="ed-btn" style="display: inline-flex; align-items: center; gap: 12px; min-height: 60px; box-sizing: border-box; padding: 0 40px; border: 1px solid #1A1A1A; background: #1A1A1A; color: #F6F2EA; font-family: 'Inter Tight', system-ui, sans-serif; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer">Log In
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg>
+</button>
+<p id="form-msg" role="status" aria-live="polite" style="margin: -16px 0 0; min-height: 24px; max-width: 520px; text-align: center; font-family: 'Source Serif 4', Georgia, serif; font-size: 1.05rem"></p>
+<p style="margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-size: 1.05rem; color: #5A544C">New to Worn? <a href="get-started.html" style="color: #8A5A2B; font-weight: 600; text-underline-offset: 4px">Create an account</a></p>
+</form>
+</main>
+
+<footer style="max-width: 1280px; margin: 0 auto; box-sizing: border-box; padding: 0 32px">
+<div style="border-top: 1px solid #1A1A1A; padding: 28px 0 36px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<span style="font-family: 'Yellowtail', cursive; font-size: 2.2rem; line-height: 1">Worn</span>
+<span style="font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase; color: #5A544C">Dean Nguyen · © 2026</span>
+</div>
+</footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script>
+  // Log in with Supabase, then return to the page the visitor came from.
+  (function () {
+    var form = document.getElementById('login-form');
+    var btn = document.getElementById('login-btn');
+    var msg = document.getElementById('form-msg');
+    if (!window.worn) { msg.style.color = '#8A1F14'; msg.textContent = "Log-in couldn't load (the site's js files are missing). Please try again later."; return; }
+    var next = worn.safeNext(new URLSearchParams(location.search).get('next'), 'profile.html');
+    worn.getUser().then(function (u) { if (u) location.replace(next); });
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      if (!worn.ready) return worn.say(msg, worn.notReadyMessage, 'error');
+      btn.disabled = true; btn.style.opacity = '0.6';
+      worn.say(msg, 'Logging you in…', 'info');
+      try {
+        var res = await worn.client.auth.signInWithPassword({
+          email: form.elements.email.value.trim(),
+          password: form.elements.password.value
+        });
+        if (res.error) throw res.error;
+        location.href = next;
+      } catch (err) {
+        worn.say(msg, worn.friendlyError(err), 'error');
+        btn.disabled = false; btn.style.opacity = '';
+      }
+    });
+  })();
+</script>
+</body>
+</html>
