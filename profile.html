@@ -138,6 +138,7 @@ a{color:#1A1A1A}a:hover{color:#000000}
   // Load and save the signed-in user's own profile and photos.
   (async function () {
     var reveal = function () { document.documentElement.style.visibility = ''; };
+    if (!window.worn) { reveal(); var m = document.getElementById('details-msg'); m.style.color = '#8A1F14'; m.textContent = "Your profile couldn't load (the site's js files are missing). Please try again later."; return; }
     if (!worn.ready) {
       reveal();
       worn.say(document.getElementById('details-msg'), worn.notReadyMessage, 'error');

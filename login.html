@@ -77,6 +77,7 @@ a{color:#1A1A1A}a:hover{color:#000000}
     var form = document.getElementById('login-form');
     var btn = document.getElementById('login-btn');
     var msg = document.getElementById('form-msg');
+    if (!window.worn) { msg.style.color = '#8A1F14'; msg.textContent = "Log-in couldn't load (the site's js files are missing). Please try again later."; return; }
     var next = worn.safeNext(new URLSearchParams(location.search).get('next'), 'profile.html');
     worn.getUser().then(function (u) { if (u) location.replace(next); });
     form.addEventListener('submit', async function (e) {

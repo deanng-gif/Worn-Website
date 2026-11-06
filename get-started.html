@@ -70,7 +70,7 @@ a{color:#1A1A1A}a:hover{color:#000000}
 <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg>
 </button>
 <p id="form-msg" role="status" aria-live="polite" style="margin: -16px 0 0; min-height: 24px; max-width: 520px; text-align: center; font-family: 'Source Serif 4', Georgia, serif; font-size: 1.05rem"></p>
-<p style="margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-size: 1.05rem; color: #5A544C">Already have an account? <a href="login.html" style="color: #8A5A2B; font-weight: 600; text-underline-offset: 4px">Log in</a></p>
+<p style="margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-size: 1.05rem; color: #5A544C">Already have an account? <a href="login.html?next=checkout.html" style="color: #8A5A2B; font-weight: 600; text-underline-offset: 4px">Log in</a></p>
 </form>
 </main>
 
@@ -114,6 +114,7 @@ a{color:#1A1A1A}a:hover{color:#000000}
     var msg = document.getElementById('form-msg');
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
+      if (!window.worn) { msg.style.color = '#8A1F14'; msg.textContent = "Sign-up couldn't load (the site's js files are missing). Please try again later."; return; }
       var f = form.elements;
       if (f.password.value.length < 8) return worn.say(msg, 'Your password needs at least 8 characters.', 'error');
       if (f.password.value !== f.confirmPassword.value) return worn.say(msg, "Your passwords don't match.", 'error');
@@ -126,14 +127,14 @@ a{color:#1A1A1A}a:hover{color:#000000}
           password: f.password.value,
           options: {
             data: { first_name: f.firstName.value.trim(), last_name: f.lastName.value.trim(), preferred_fit: f.fit.value },
-            emailRedirectTo: location.origin + '/profile.html'
+            emailRedirectTo: location.origin + '/checkout.html'
           }
         });
         if (res.error) throw res.error;
         if (res.data.session) {
           location.href = 'checkout.html';
         } else {
-          worn.say(msg, 'Almost done! We sent a confirmation link to ' + f.email.value.trim() + '. Click it, then log in to continue.', 'ok');
+          worn.say(msg, 'Almost done! We sent a confirmation link to ' + f.email.value.trim() + '. Click it to confirm your email, then you\'ll choose your plan.', 'ok');
           form.reset();
         }
       } catch (err) {

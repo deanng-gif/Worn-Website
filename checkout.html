@@ -156,6 +156,7 @@ Back to your details
     var msg = document.getElementById('pay-msg');
     btn.addEventListener('click', async function (e) {
       e.preventDefault();
+      if (!window.worn) { msg.style.color = '#8A1F14'; msg.textContent = "Checkout couldn't load (the site's js files are missing). Please try again later."; return; }
       if (!worn.ready) return worn.say(msg, worn.notReadyMessage, 'error');
       var user = await worn.getUser();
       if (!user) {
