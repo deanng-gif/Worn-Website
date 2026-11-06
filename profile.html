@@ -115,10 +115,10 @@ a{color:#1A1A1A}a:hover{color:#000000}
 </div>
 <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px">
 <div style="display: flex; flex-direction: column; gap: 6px">
-<span style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.6rem">No active plan</span>
-<span style="font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 1.05rem; color: #5A544C">Choose a plan to unlock AI try-ons.</span>
+<span style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.6rem" id="plan-name">No active plan</span>
+<span style="font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 1.05rem; color: #5A544C" id="plan-detail">Choose a plan to unlock AI try-ons.</span>
 </div>
-<a href="checkout.html" class="ed-btn" style="display: inline-flex; align-items: center; min-height: 52px; box-sizing: border-box; padding: 0 32px; border: 1px solid #1A1A1A; background: #1A1A1A; color: #F6F2EA; text-decoration: none; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase">Choose a plan</a>
+<a href="checkout.html" id="plan-btn" class="ed-btn" style="display: inline-flex; align-items: center; min-height: 52px; box-sizing: border-box; padding: 0 32px; border: 1px solid #1A1A1A; background: #1A1A1A; color: #F6F2EA; text-decoration: none; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase">Choose a plan</a>
 </div>
 </div>
 </section>
@@ -188,6 +188,41 @@ a{color:#1A1A1A}a:hover{color:#000000}
       }
     }
     showPhotos();
+
+    // Subscription status (written only by the Stripe webhook; users can just read their own)
+    var planName = document.getElementById('plan-name'), planDetail = document.getElementById('plan-detail'), planBtn = document.getElementById('plan-btn');
+    var fmtDate = function (iso) { return new Date(iso).toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' }); };
+    async function loadPlan() {
+      var r = await db.from('subscriptions').select('plan,status,current_period_end,cancel_at_period_end')
+        .eq('user_id', user.id).order('created_at', { ascending: false }).limit(1);
+      var s = r.data && r.data[0];
+      var portal = window.WORN_CONFIG.billingPortal || '';
+      if (!s || s.status === 'canceled' || s.status === 'incomplete_expired') return false;
+      var label = s.plan === 'annual' ? 'Worn Annual \u00b7 $49.99/yr' : s.plan === 'monthly' ? 'Worn Monthly \u00b7 $4.99/mo' : 'Worn';
+      planName.textContent = label;
+      if (s.status === 'past_due' || s.status === 'unpaid') planDetail.textContent = 'Your last payment did not go through. Please update your card.';
+      else if (s.cancel_at_period_end && s.current_period_end) planDetail.textContent = 'Cancelled. Access ends on ' + fmtDate(s.current_period_end) + '.';
+      else if (s.current_period_end) planDetail.textContent = 'Renews on ' + fmtDate(s.current_period_end) + '.';
+      else planDetail.textContent = 'Active.';
+      if (portal.indexOf('https://') === 0) {
+        planBtn.textContent = 'Manage plan';
+        planBtn.href = portal + '?prefilled_email=' + encodeURIComponent(user.email || '');
+        planBtn.target = '_blank'; planBtn.rel = 'noopener';
+      } else {
+        planBtn.style.display = 'none';
+      }
+      return true;
+    }
+    var justPaid = new URLSearchParams(location.search).get('checkout') === 'success';
+    var found = await loadPlan();
+    if (!found && justPaid) {
+      planDetail.textContent = 'Payment received! Activating your plan…';
+      for (var tries = 0; tries < 10 && !found; tries++) {
+        await new Promise(function (res) { setTimeout(res, 2000); });
+        found = await loadPlan();
+      }
+      if (!found) planDetail.textContent = 'Your payment went through. Your plan will appear here in a minute; try refreshing.';
+    }
 
     var input = document.getElementById('photo-input');
     document.getElementById('upload-btn').addEventListener('click', function () { input.click(); });
