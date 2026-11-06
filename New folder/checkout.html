@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Choose Your Plan | Worn</title>
+<meta name="description" content="Worn lets you try on clothes before you buy them with an AI rendering on your own body.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,400;1,400&family=Inter+Tight:wght@400;500;600&family=Yellowtail&display=swap">
+<style>
+body{margin:0;background:#F6F2EA}
+a{color:#1A1A1A}a:hover{color:#000000}
+.profile-tip{position:absolute;top:calc(100% + 8px);right:0;white-space:nowrap;padding:6px 10px;background:#1A1A1A;color:#F6F2EA;font-family:'Inter Tight',system-ui,sans-serif;font-size:0.8rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;opacity:0;transform:translateY(-4px);pointer-events:none;transition:opacity .15s,transform .15s;z-index:2}
+.profile-btn:hover .profile-tip,.profile-btn:focus-visible .profile-tip{opacity:1;transform:translateY(0)}
+.ed-link{text-decoration:none;background-image:linear-gradient(currentColor,currentColor);background-size:0 1px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .25s}
+.ed-link:hover,.ed-link:focus-visible{background-size:100% 1px}
+.ed-btn{transition:background-color .2s,border-color .2s;outline:2px solid transparent;outline-offset:4px}
+.ed-btn:hover{background-color:#8A5A2B !important;border-color:#8A5A2B !important}
+.ed-btn:focus-visible{outline-color:#1A1A1A}
+.ed-plan{transition:border-color .2s,background-color .2s;outline:2px solid transparent;outline-offset:4px}
+.ed-plan:hover{border-color:#8A5A2B !important}
+.ed-plan:focus-within{outline-color:#1A1A1A}
+@media (prefers-reduced-motion: reduce){.ed-link,.ed-btn,.ed-plan{transition:none}}
+@media (max-width: 640px){.masthead{grid-template-columns:1fr auto !important;row-gap:0 !important}.masthead .wordmark{grid-column:1 / -1;grid-row:1}}
+</style>
+</head>
+<body>
+<div style="min-height: 100vh; background: #F6F2EA; color: #1A1A1A; font-family: 'Inter Tight', system-ui, sans-serif">
+
+<header style="max-width: 1280px; margin: 0 auto; box-sizing: border-box; padding: 16px 32px 0">
+<div class="masthead" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: center; gap: 12px; padding-bottom: 14px">
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 4px 20px">
+<a href="index.html" class="ed-link" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #1A1A1A">Home</a>
+</nav>
+<a href="index.html" aria-label="Worn home" class="wordmark" style="justify-self: center; display: inline-flex; align-items: center; min-height: 44px; color: #1A1A1A; text-decoration: none; font-family: 'Yellowtail', cursive; font-size: clamp(2.4rem, 5vw, 3.6rem); line-height: 1">Worn</a>
+<div style="justify-self: end; display: flex; align-items: center; gap: 16px">
+<a href="get-started.html" class="ed-link" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #1A1A1A">Get Started</a>
+<a href="profile.html" class="profile-btn" aria-label="My Profile" style="position: relative; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; box-sizing: border-box; border: 1px solid #1A1A1A; border-radius: 999px; color: #1A1A1A; text-decoration: none">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg>
+<span class="profile-tip" aria-hidden="true">My Profile</span>
+</a>
+</div>
+</div>
+<div style="border-top: 1px solid #1A1A1A; border-bottom: 1px solid #1A1A1A; height: 3px"></div>
+</header>
+
+<main style="max-width: 1100px; margin: 0 auto; box-sizing: border-box; padding: clamp(48px, 7vw, 96px) 32px clamp(64px, 8vw, 112px); display: flex; flex-direction: column; align-items: center; gap: 20px">
+<p style="margin: 0; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #8A5A2B">Step 2 of 2</p>
+<h1 style="margin: 0; text-align: center; font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: clamp(3rem, 7vw, 5.4rem); line-height: 1; letter-spacing: -0.015em">Choose Your <em>Plan</em></h1>
+<div style="width: 64px; height: 1px; background: #1A1A1A"></div>
+<p style="margin: 0; max-width: 520px; text-align: center; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: clamp(1.15rem, 1.7vw, 1.35rem); line-height: 1.5; color: #2B2722">Unlock AI try-ons and see how every piece fits before you buy.</p>
+
+<div style="margin-top: 32px; width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(32px, 4vw, 56px); align-items: start">
+
+<section style="display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid #1A1A1A">
+<h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: clamp(1.8rem, 3vw, 2.4rem); line-height: 1.1">Your Plan</h2>
+<span style="font-size: 0.75rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #8A5A2B">No. 01</span>
+</div>
+<fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 14px">
+<legend style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Choose a billing plan</legend>
+<label class="ed-plan" style="box-sizing: border-box; padding: 22px 24px; border: 2px solid #8A5A2B; background: #ECE4D6; display: flex; align-items: center; gap: 16px; cursor: pointer">
+<input type="radio" name="plan" value="monthly" checked style="width: 20px; height: 20px; margin: 0; accent-color: #8A5A2B">
+<span style="flex: 1; display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; line-height: 1.1">Monthly</span>
+<span style="font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 1rem; color: #5A544C">Billed every month</span>
+</span>
+<span style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.7rem">$4.99<span style="font-family: 'Inter Tight', system-ui, sans-serif; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: #5A544C"> /mo</span></span>
+</label>
+<label class="ed-plan" style="box-sizing: border-box; padding: 22px 24px; border: 2px solid rgba(26, 26, 26, 0.25); background: #FBF8F2; display: flex; align-items: center; gap: 16px; cursor: pointer">
+<input type="radio" name="plan" value="annual" style="width: 20px; height: 20px; margin: 0; accent-color: #8A5A2B">
+<span style="flex: 1; display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; line-height: 1.1">Annual</span>
+<span style="font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 1rem; color: #5A544C">Billed once a year</span>
+</span>
+<span style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.7rem">$49.99<span style="font-family: 'Inter Tight', system-ui, sans-serif; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: #5A544C"> /yr</span></span>
+</label>
+</fieldset>
+<div style="padding-top: 8px">
+<p style="margin: 0 0 14px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase">Every plan includes</p>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-family: 'Source Serif 4', Georgia, serif; font-size: 1.15rem">
+<li style="display: flex; align-items: center; gap: 12px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8A5A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Unlimited AI try-ons</li>
+<li style="display: flex; align-items: center; gap: 12px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8A5A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Save your favorite looks to your profile</li>
+<li style="display: flex; align-items: center; gap: 12px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8A5A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Cancel anytime</li>
+</ul>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid #1A1A1A">
+<h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: clamp(1.8rem, 3vw, 2.4rem); line-height: 1.1">Order Summary</h2>
+<span style="font-size: 0.75rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #8A5A2B">No. 02</span>
+</div>
+<div style="box-sizing: border-box; padding: clamp(24px, 3vw, 36px); border: 1px solid #1A1A1A; background: #FBF8F2; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; justify-content: space-between; gap: 12px; font-family: 'Source Serif 4', Georgia, serif; font-size: 1.15rem"><span>Worn <span id="plan-name">Monthly</span></span><span id="plan-price">$4.99</span></div>
+<div style="display: flex; justify-content: space-between; gap: 12px; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 1.05rem; color: #5A544C"><span>Billing</span><span id="plan-billing">Every month</span></div>
+<div style="height: 1px; background: #1A1A1A"></div>
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px"><span style="font-size: 0.8rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase">Due today</span><span style="font-family: 'Playfair Display', Georgia, serif; font-size: 2rem" id="plan-total">$4.99</span></div>
+<p style="margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 0.95rem; color: #5A544C">Sales tax, if any, is calculated at payment.</p>
+<a href="login.html?next=checkout.html" id="pay-btn" class="ed-btn" style="margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 12px; min-height: 60px; border: 1px solid #1A1A1A; background: #1A1A1A; color: #F6F2EA; text-decoration: none; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="1"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+Continue to Secure Payment
+</a>
+<p id="pay-msg" role="status" aria-live="polite" style="margin: 0; min-height: 0; text-align: center; font-family: \'Source Serif 4\', Georgia, serif; font-size: 1.05rem"></p>
+<p style="margin: 0; text-align: center; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 0.95rem; color: #5A544C">You'll enter your card details on a secure checkout page powered by Stripe.</p>
+</div>
+<a href="get-started.html" class="ed-link" style="align-self: center; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5A544C">
+<svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H4"></path><path d="M10 6l-6 6 6 6"></path></svg>
+Back to your details
+</a>
+</section>
+</div>
+</main>
+
+<footer style="max-width: 1280px; margin: 0 auto; box-sizing: border-box; padding: 0 32px">
+<div style="border-top: 1px solid #1A1A1A; padding: 28px 0 36px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<span style="font-family: 'Yellowtail', cursive; font-size: 2.2rem; line-height: 1">Worn</span>
+<span style="font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase; color: #5A544C">Dean Nguyen · © 2026</span>
+</div>
+</footer>
+</div>
+<script>
+  // Highlight the chosen plan and update the order summary.
+  (function () {
+    var plans = {
+      monthly: { name: 'Monthly', price: '$4.99', billing: 'Every month' },
+      annual: { name: 'Annual', price: '$49.99', billing: 'Once a year' }
+    };
+    var radios = document.querySelectorAll('input[name="plan"]');
+    function update() {
+      radios.forEach(function (r) {
+        var card = r.closest('label');
+        card.style.borderColor = r.checked ? '#8A5A2B' : 'rgba(26, 26, 26, 0.25)';
+        card.style.background = r.checked ? '#ECE4D6' : '#FBF8F2';
+        if (r.checked) {
+          var p = plans[r.value];
+          document.getElementById('plan-name').textContent = p.name;
+          document.getElementById('plan-price').textContent = p.price;
+          document.getElementById('plan-billing').textContent = p.billing;
+          document.getElementById('plan-total').textContent = p.price;
+        }
+      });
+    }
+    radios.forEach(function (r) { r.addEventListener('change', update); });
+    update();
+  })();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script>
+  // Send the signed-in user to Stripe's secure checkout for the chosen plan.
+  (function () {
+    var btn = document.getElementById('pay-btn');
+    var msg = document.getElementById('pay-msg');
+    btn.addEventListener('click', async function (e) {
+      e.preventDefault();
+      if (!window.worn) { msg.style.color = '#8A1F14'; msg.textContent = "Checkout couldn't load (the site's js files are missing). Please try again later."; return; }
+      if (!worn.ready) return worn.say(msg, worn.notReadyMessage, 'error');
+      var user = await worn.getUser();
+      if (!user) {
+        worn.say(msg, 'Please log in or create an account first. Taking you there…', 'info');
+        setTimeout(function () { location.href = 'login.html?next=checkout.html'; }, 900);
+        return;
+      }
+      var plan = (document.querySelector('input[name="plan"]:checked') || {}).value || 'monthly';
+      var link = (window.WORN_CONFIG.paymentLinks || {})[plan] || '';
+      if (link.indexOf('https://') !== 0) return worn.say(msg, "Payments aren't switched on yet.", 'error');
+      worn.say(msg, 'Opening secure checkout…', 'info');
+      location.href = link + '?client_reference_id=' + encodeURIComponent(user.id) +
+                      '&prefilled_email=' + encodeURIComponent(user.email || '');
+    });
+  })();
+</script>
+</body>
+</html>

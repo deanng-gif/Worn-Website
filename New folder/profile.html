@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>document.documentElement.style.visibility = 'hidden';</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Profile | Worn</title>
+<meta name="description" content="Worn lets you try on clothes before you buy them with an AI rendering on your own body.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,400;1,400&family=Inter+Tight:wght@400;500;600&family=Yellowtail&display=swap">
+<style>
+body{margin:0;background:#F6F2EA}
+a{color:#1A1A1A}a:hover{color:#000000}
+.profile-tip{position:absolute;top:calc(100% + 8px);right:0;white-space:nowrap;padding:6px 10px;background:#1A1A1A;color:#F6F2EA;font-family:'Inter Tight',system-ui,sans-serif;font-size:0.8rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;opacity:0;transform:translateY(-4px);pointer-events:none;transition:opacity .15s,transform .15s;z-index:2}
+.profile-btn:hover .profile-tip,.profile-btn:focus-visible .profile-tip{opacity:1;transform:translateY(0)}
+.ed-link{text-decoration:none;background-image:linear-gradient(currentColor,currentColor);background-size:0 1px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .25s}
+.ed-link:hover,.ed-link:focus-visible{background-size:100% 1px}
+.ed-btn{transition:background-color .2s,border-color .2s;outline:2px solid transparent;outline-offset:4px}
+.ed-btn:hover{background-color:#8A5A2B !important;border-color:#8A5A2B !important}
+.ed-btn:focus-visible{outline-color:#1A1A1A}
+.ed-field{transition:border-color .2s}
+.ed-field:focus{outline:none;border-bottom-color:#8A5A2B !important;box-shadow:0 1px 0 0 #8A5A2B}
+.ed-slot{transition:border-color .2s,color .2s}
+.ed-slot:hover{border-color:#8A5A2B !important;color:#8A5A2B !important}
+@media (prefers-reduced-motion: reduce){.ed-link,.ed-btn,.ed-field,.ed-slot{transition:none}}
+@media (max-width: 640px){.masthead{grid-template-columns:1fr auto !important;row-gap:0 !important}.masthead .wordmark{grid-column:1 / -1;grid-row:1}}
+</style>
+</head>
+<body>
+<div style="min-height: 100vh; background: #F6F2EA; color: #1A1A1A; font-family: 'Inter Tight', system-ui, sans-serif">
+
+<header style="max-width: 1280px; margin: 0 auto; box-sizing: border-box; padding: 16px 32px 0">
+<div class="masthead" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: center; gap: 12px; padding-bottom: 14px">
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 4px 20px">
+<a href="index.html" class="ed-link" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #1A1A1A">Home</a>
+</nav>
+<a href="index.html" aria-label="Worn home" class="wordmark" style="justify-self: center; display: inline-flex; align-items: center; min-height: 44px; color: #1A1A1A; text-decoration: none; font-family: 'Yellowtail', cursive; font-size: clamp(2.4rem, 5vw, 3.6rem); line-height: 1">Worn</a>
+<div style="justify-self: end; display: flex; align-items: center; gap: 16px">
+<a href="get-started.html" class="ed-link" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #1A1A1A">Get Started</a>
+<a href="profile.html" class="profile-btn" aria-label="My Profile" aria-current="page" style="position: relative; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; box-sizing: border-box; border: 1px solid #1A1A1A; border-radius: 999px; background: #1A1A1A; color: #F6F2EA; text-decoration: none">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg>
+<span class="profile-tip" aria-hidden="true">My Profile</span>
+</a>
+</div>
+</div>
+<div style="border-top: 1px solid #1A1A1A; border-bottom: 1px solid #1A1A1A; height: 3px"></div>
+</header>
+
+<section style="max-width: 1280px; margin: 0 auto; box-sizing: border-box; padding: clamp(48px, 7vw, 88px) 32px clamp(40px, 5vw, 64px); display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center">
+<div aria-hidden="true" style="width: 120px; height: 120px; border-radius: 999px; border: 1px solid #1A1A1A; background: #ECE4D6; color: #1A1A1A; display: flex; align-items: center; justify-content: center">
+<svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg>
+</div>
+<h1 style="margin: 8px 0 0; font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: clamp(3rem, 7vw, 5.4rem); line-height: 1; letter-spacing: -0.015em">My <em>Profile</em></h1>
+<p style="margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: clamp(1.25rem, 2vw, 1.5rem); color: #2B2722" id="profile-name">&nbsp;</p>
+<a href="#" class="ed-link" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #8A5A2B">Edit profile</a>
+</section>
+
+<div style="max-width: 1280px; margin: 0 auto; box-sizing: border-box; padding: 0 32px"><div style="height: 1px; background: #1A1A1A"></div></div>
+
+<div style="max-width: 1100px; margin: 0 auto; box-sizing: border-box; padding: clamp(48px, 6vw, 88px) 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(32px, 4vw, 56px); align-items: start">
+<section style="display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid #1A1A1A">
+<h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: clamp(1.8rem, 3vw, 2.4rem); line-height: 1.1">My Photos</h2>
+<span style="font-size: 0.75rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #8A5A2B">No. 01</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px">
+<div class="ed-slot" id="slot-front" style="aspect-ratio: 3 / 4; border: 1px dashed rgba(26, 26, 26, 0.45); background: #FBF8F2; display: flex; align-items: center; justify-content: center; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 1rem; color: #5A544C">[Front]</div>
+<div class="ed-slot" id="slot-side" style="aspect-ratio: 3 / 4; border: 1px dashed rgba(26, 26, 26, 0.45); background: #FBF8F2; display: flex; align-items: center; justify-content: center; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 1rem; color: #5A544C">[Side]</div>
+<div class="ed-slot" id="slot-back" style="aspect-ratio: 3 / 4; border: 1px dashed rgba(26, 26, 26, 0.45); background: #FBF8F2; display: flex; align-items: center; justify-content: center; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 1rem; color: #5A544C">[Back]</div>
+</div>
+<input type="file" id="photo-input" accept="image/jpeg,image/png,image/webp,image/heic" multiple hidden>
+<button type="button" id="upload-btn" class="ed-btn" style="min-height: 52px; border: 1px solid #1A1A1A; background: #1A1A1A; color: #F6F2EA; font-family: 'Inter Tight', system-ui, sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer">Upload photos</button>
+<p id="photo-msg" role="status" aria-live="polite" style="margin: -8px 0 0; min-height: 22px; font-family: 'Source Serif 4', Georgia, serif; font-size: 1rem"></p><p style="margin: -8px 0 0; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 0.95rem; color: #5A544C">Choose up to 3 photos, in order: front, side, back. Only you can see them.</p>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid #1A1A1A">
+<h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: clamp(1.8rem, 3vw, 2.4rem); line-height: 1.1">Body Details</h2>
+<span style="font-size: 0.75rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #8A5A2B">No. 02</span>
+</div>
+<form id="details-form" style="margin: 0; display: flex; flex-direction: column; gap: 24px">
+<fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 10px">
+<legend style="padding: 0; margin-bottom: 10px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase">Height</legend>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px">
+<label style="display: flex; flex-direction: column; gap: 4px; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 0.95rem; color: #5A544C">Feet<input class="ed-field" type="number" min="3" max="8" id="height-ft" placeholder="5" style="min-height: 44px; box-sizing: border-box; padding: 0 2px; border: 0; border-bottom: 1px solid #1A1A1A; background: transparent; color: #1A1A1A; font-family: 'Source Serif 4', Georgia, serif; font-style: normal; font-size: 1.2rem"></label>
+<label style="display: flex; flex-direction: column; gap: 4px; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 0.95rem; color: #5A544C">Inches<input class="ed-field" type="number" min="0" max="11" id="height-in" placeholder="10" style="min-height: 44px; box-sizing: border-box; padding: 0 2px; border: 0; border-bottom: 1px solid #1A1A1A; background: transparent; color: #1A1A1A; font-family: 'Source Serif 4', Georgia, serif; font-style: normal; font-size: 1.2rem"></label>
+</div>
+</fieldset>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase">Weight (lb)<input class="ed-field" type="number" min="50" max="500" id="weight-lb" placeholder="160" style="min-height: 44px; box-sizing: border-box; padding: 0 2px; border: 0; border-bottom: 1px solid #1A1A1A; background: transparent; color: #1A1A1A; font-family: 'Source Serif 4', Georgia, serif; font-size: 1.2rem; letter-spacing: 0; text-transform: none"></label>
+<button type="submit" id="save-btn" class="ed-btn" style="min-height: 52px; border: 1px solid #1A1A1A; background: #1A1A1A; color: #F6F2EA; font-family: 'Inter Tight', system-ui, sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer">Save details</button>
+<p id="details-msg" role="status" aria-live="polite" style="margin: -8px 0 0; min-height: 22px; font-family: 'Source Serif 4', Georgia, serif; font-size: 1rem"></p>
+</form>
+</section>
+</div>
+
+<section style="max-width: 1100px; margin: 0 auto; box-sizing: border-box; padding: 0 32px clamp(48px, 6vw, 88px); display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid #1A1A1A">
+<h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: clamp(1.8rem, 3vw, 2.4rem); line-height: 1.1">Saved Try-Ons</h2>
+<span style="font-size: 0.75rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #8A5A2B">No. 03</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px">
+<div class="ed-slot" style="aspect-ratio: 3 / 4; border: 1px dashed rgba(26, 26, 26, 0.45); background: #FBF8F2; display: flex; align-items: center; justify-content: center; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 1.05rem; color: #5A544C">[Try-on 1]</div>
+<div class="ed-slot" style="aspect-ratio: 3 / 4; border: 1px dashed rgba(26, 26, 26, 0.45); background: #FBF8F2; display: flex; align-items: center; justify-content: center; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 1.05rem; color: #5A544C">[Try-on 2]</div>
+<div class="ed-slot" style="aspect-ratio: 3 / 4; border: 1px dashed rgba(26, 26, 26, 0.45); background: #FBF8F2; display: flex; align-items: center; justify-content: center; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 1.05rem; color: #5A544C">[Try-on 3]</div>
+<div class="ed-slot" style="aspect-ratio: 3 / 4; border: 1px dashed rgba(26, 26, 26, 0.45); background: #FBF8F2; display: flex; align-items: center; justify-content: center; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 1.05rem; color: #5A544C">[Try-on 4]</div>
+</div>
+</section>
+
+<section style="background: #ECE4D6">
+<div style="max-width: 1100px; margin: 0 auto; box-sizing: border-box; padding: clamp(48px, 6vw, 80px) 32px; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid #1A1A1A">
+<h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: clamp(1.8rem, 3vw, 2.4rem); line-height: 1.1">Subscription</h2>
+<span style="font-size: 0.75rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #8A5A2B">No. 04</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.6rem" id="plan-name">No active plan</span>
+<span style="font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 1.05rem; color: #5A544C" id="plan-detail">Choose a plan to unlock AI try-ons.</span>
+</div>
+<a href="checkout.html" id="plan-btn" class="ed-btn" style="display: inline-flex; align-items: center; min-height: 52px; box-sizing: border-box; padding: 0 32px; border: 1px solid #1A1A1A; background: #1A1A1A; color: #F6F2EA; text-decoration: none; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase">Choose a plan</a>
+</div>
+</div>
+</section>
+
+<footer style="max-width: 1280px; margin: 0 auto; box-sizing: border-box; padding: 0 32px">
+<div style="padding: 28px 0 36px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<span style="font-family: 'Yellowtail', cursive; font-size: 2.2rem; line-height: 1">Worn</span>
+<a href="index.html" id="logout-link" class="ed-link" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5A544C">Log out</a>
+</div>
+</footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script>
+  // Load and save the signed-in user's own profile and photos.
+  (async function () {
+    var reveal = function () { document.documentElement.style.visibility = ''; };
+    if (!window.worn) { reveal(); var m = document.getElementById('details-msg'); m.style.color = '#8A1F14'; m.textContent = "Your profile couldn't load (the site's js files are missing). Please try again later."; return; }
+    if (!worn.ready) {
+      reveal();
+      worn.say(document.getElementById('details-msg'), worn.notReadyMessage, 'error');
+      return;
+    }
+    var user = await worn.requireUser();
+    if (!user) return;
+    reveal();
+
+    var db = worn.client;
+    var nameEl = document.getElementById('profile-name');
+    var ft = document.getElementById('height-ft'), inch = document.getElementById('height-in'), lb = document.getElementById('weight-lb');
+    var detailsMsg = document.getElementById('details-msg'), photoMsg = document.getElementById('photo-msg');
+
+    // Profile row (row-level security guarantees this is only ever the user's own)
+    var res = await db.from('profiles').select('*').eq('id', user.id).maybeSingle();
+    var prof = res.data || {};
+    var fullName = [prof.first_name, prof.last_name].filter(Boolean).join(' ');
+    nameEl.textContent = fullName || user.email;
+    if (prof.height_ft != null) ft.value = prof.height_ft;
+    if (prof.height_in != null) inch.value = prof.height_in;
+    if (prof.weight_lb != null) lb.value = prof.weight_lb;
+
+    document.getElementById('details-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      var num = function (el) { return el.value === '' ? null : parseInt(el.value, 10); };
+      worn.say(detailsMsg, 'Saving…', 'info');
+      var up = await db.from('profiles').upsert({ id: user.id, height_ft: num(ft), height_in: num(inch), weight_lb: num(lb) });
+      if (up.error) worn.say(detailsMsg, /check constraint/i.test(up.error.message) ? 'Please enter a realistic height and weight.' : worn.friendlyError(up.error), 'error');
+      else worn.say(detailsMsg, 'Saved.', 'ok');
+    });
+
+    // Photos live in a private bucket under <user id>/front|side|back
+    var slots = ['front', 'side', 'back'];
+    async function showPhotos() {
+      for (var i = 0; i < slots.length; i++) {
+        var slotEl = document.getElementById('slot-' + slots[i]);
+        var signed = await db.storage.from(worn.PHOTO_BUCKET).createSignedUrl(user.id + '/' + slots[i], 3600);
+        if (signed.data && signed.data.signedUrl) {
+          slotEl.innerHTML = '';
+          var img = document.createElement('img');
+          img.src = signed.data.signedUrl + '&t=' + Date.now();
+          img.alt = 'Your ' + slots[i] + ' photo';
+          img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block';
+          slotEl.appendChild(img);
+          slotEl.style.borderStyle = 'solid';
+        }
+      }
+    }
+    showPhotos();
+
+    // Subscription status (written only by the Stripe webhook; users can just read their own)
+    var planName = document.getElementById('plan-name'), planDetail = document.getElementById('plan-detail'), planBtn = document.getElementById('plan-btn');
+    var fmtDate = function (iso) { return new Date(iso).toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' }); };
+    async function loadPlan() {
+      var r = await db.from('subscriptions').select('plan,status,current_period_end,cancel_at_period_end')
+        .eq('user_id', user.id).order('created_at', { ascending: false }).limit(1);
+      var s = r.data && r.data[0];
+      var portal = window.WORN_CONFIG.billingPortal || '';
+      if (!s || s.status === 'canceled' || s.status === 'incomplete_expired') return false;
+      var label = s.plan === 'annual' ? 'Worn Annual \u00b7 $49.99/yr' : s.plan === 'monthly' ? 'Worn Monthly \u00b7 $4.99/mo' : 'Worn';
+      planName.textContent = label;
+      if (s.status === 'past_due' || s.status === 'unpaid') planDetail.textContent = 'Your last payment did not go through. Please update your card.';
+      else if (s.cancel_at_period_end && s.current_period_end) planDetail.textContent = 'Cancelled. Access ends on ' + fmtDate(s.current_period_end) + '.';
+      else if (s.current_period_end) planDetail.textContent = 'Renews on ' + fmtDate(s.current_period_end) + '.';
+      else planDetail.textContent = 'Active.';
+      if (portal.indexOf('https://') === 0) {
+        planBtn.textContent = 'Manage plan';
+        planBtn.href = portal + '?prefilled_email=' + encodeURIComponent(user.email || '');
+        planBtn.target = '_blank'; planBtn.rel = 'noopener';
+      } else {
+        planBtn.style.display = 'none';
+      }
+      return true;
+    }
+    var justPaid = new URLSearchParams(location.search).get('checkout') === 'success';
+    var found = await loadPlan();
+    if (!found && justPaid) {
+      planDetail.textContent = 'Payment received! Activating your plan…';
+      for (var tries = 0; tries < 10 && !found; tries++) {
+        await new Promise(function (res) { setTimeout(res, 2000); });
+        found = await loadPlan();
+      }
+      if (!found) planDetail.textContent = 'Your payment went through. Your plan will appear here in a minute; try refreshing.';
+    }
+
+    var input = document.getElementById('photo-input');
+    document.getElementById('upload-btn').addEventListener('click', function () { input.click(); });
+    input.addEventListener('change', async function () {
+      var files = Array.prototype.slice.call(input.files, 0, 3);
+      if (!files.length) return;
+      worn.say(photoMsg, 'Uploading…', 'info');
+      for (var i = 0; i < files.length; i++) {
+        if (files[i].size > 10 * 1024 * 1024) { worn.say(photoMsg, files[i].name + ' is over 10 MB. Please choose a smaller photo.', 'error'); return; }
+        var r = await db.storage.from(worn.PHOTO_BUCKET).upload(user.id + '/' + slots[i], files[i], { upsert: true, contentType: files[i].type });
+        if (r.error) { worn.say(photoMsg, worn.friendlyError(r.error), 'error'); return; }
+      }
+      input.value = '';
+      worn.say(photoMsg, 'Photos saved.', 'ok');
+      showPhotos();
+    });
+
+    document.getElementById('logout-link').addEventListener('click', async function (e) {
+      e.preventDefault();
+      await db.auth.signOut();
+      location.href = 'index.html';
+    });
+  })();
+</script>
+</body>
+</html>
