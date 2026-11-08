@@ -69,7 +69,7 @@ a{color:#1A1A1A}a:hover{color:#000000}
 <section style="display: flex; flex-direction: column; gap: 18px">
 <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid #1A1A1A"><h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: clamp(1.8rem, 3vw, 2.4rem); line-height: 1.1">The Piece</h2><span style="font-size: 0.75rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #8A5A2B">No. 02</span></div>
 <figure id="garment-frame" style="margin: 0; aspect-ratio: 3 / 4; border: 1px solid #1A1A1A; background: #FBF8F2; overflow: hidden; display: flex; align-items: center; justify-content: center; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; color: #5A544C">Loading…</figure>
-<p id="garment-type" style="margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 0.95rem; color: #5A544C"></p>
+<dl id="specs" style="margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 10px 20px; align-items: baseline"></dl>
 </section>
 </div>
 
@@ -121,14 +121,43 @@ a{color:#1A1A1A}a:hover{color:#000000}
     var id = params.get('id') || '';
     if (!/^[0-9a-f-]{36}$/i.test(id)) return worn.say(msg, "We couldn't find that try-on.", 'error');
 
-    var res = await db.from('tryons').select('id,status,category,garment_path,result_path,notes,created_at').eq('id', id).maybeSingle();
+    var res = await db.from('tryons').select('id,status,category,garment_path,result_path,notes,created_at,size,fit,style_note,photo_type,source_url').eq('id', id).maybeSingle();
     var row = res.data;
     if (!row || row.status !== 'completed' || !row.result_path) return worn.say(msg, "We couldn't find that try-on. It may have been removed.", 'error');
 
     var when = new Date(row.created_at);
     document.getElementById('look-meta').textContent = when.toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' }) + ' · ' + when.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
-    var types = { auto: 'Clothing type: detected automatically', tops: 'Clothing type: top', bottoms: 'Clothing type: bottoms', 'one-pieces': 'Clothing type: full outfit' };
-    document.getElementById('garment-type').textContent = types[row.category] || '';
+    var typeNames = { auto: 'Detected automatically', tops: 'Top', bottoms: 'Bottoms', 'one-pieces': 'Full outfit' };
+    var fitNames = { 'as-pictured': 'As pictured', fitted: 'Fitted', relaxed: 'Relaxed', oversized: 'Oversized' };
+    var photoNames = { auto: 'Detected automatically', 'flat-lay': 'Just the item', model: 'Worn by a model' };
+    var specs = document.getElementById('specs');
+    function addSpec(label, value, href) {
+      if (!value) return;
+      var dt = document.createElement('dt'), dd = document.createElement('dd');
+      dt.textContent = label;
+      dt.style.cssText = "font-size:0.72rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#5A544C";
+      dd.style.cssText = "margin:0;font-family:'Source Serif 4',Georgia,serif;font-size:1.05rem;word-break:break-word";
+      if (href) {
+        var a = document.createElement('a');
+        a.href = href; a.target = '_blank'; a.rel = 'noopener noreferrer nofollow';
+        a.textContent = value; a.style.cssText = 'color:#8A5A2B;text-underline-offset:4px';
+        dd.appendChild(a);
+      } else {
+        dd.textContent = value;
+      }
+      specs.appendChild(dt); specs.appendChild(dd);
+    }
+    addSpec('Type', typeNames[row.category]);
+    addSpec('Size', row.size);
+    addSpec('Fit', row.fit && row.fit !== 'as-pictured' ? fitNames[row.fit] : '');
+    addSpec('Styling', row.style_note);
+    addSpec('Photo', row.photo_type && row.photo_type !== 'auto' ? photoNames[row.photo_type] : '');
+    if (row.source_url) {
+      try {
+        var su = new URL(row.source_url);
+        if (su.protocol === 'https:' || su.protocol === 'http:') addSpec('Found at', su.hostname.replace(/^www\./, ''), su.href);
+      } catch (e) {}
+    }
     if (params.get('new') === '1') {
       worn.say(msg, 'Here you go! This try-on is saved. Add notes below so you remember where you found it.', 'ok');
       history.replaceState(null, '', 'saved.html?id=' + encodeURIComponent(id));

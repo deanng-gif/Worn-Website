@@ -71,12 +71,41 @@ a{color:#1A1A1A}a:hover{color:#000000}
 <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid #1A1A1A"><h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: clamp(1.8rem, 3vw, 2.4rem); line-height: 1.1">The Piece</h2><span style="font-size: 0.75rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #8A5A2B">No. 02</span></div>
 <button type="button" id="garment-pick" class="ed-slot" aria-label="Add a photo of the clothing item" style="aspect-ratio: 3 / 4; width: 100%; box-sizing: border-box; border: 1px dashed rgba(26, 26, 26, 0.45); background: #FBF8F2; display: flex; align-items: center; justify-content: center; overflow: hidden; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 1.05rem; color: #5A544C; text-align: center; padding: 0; cursor: pointer">+ Add a photo of the item</button>
 <input type="file" id="garment-input" accept="image/jpeg,image/png,image/webp,image/heic" hidden>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="link-input" style="font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase">Or paste a link to the item <span style="font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 0.9rem; font-weight: 400; letter-spacing: 0; text-transform: none; color: #5A544C">(optional)</span></label>
+<div style="display: flex; gap: 10px; align-items: flex-end">
+<input id="link-input" class="ed-field" type="url" inputmode="url" autocomplete="off" maxlength="2000" placeholder="https://store.com/product-page" style="min-height: 44px; box-sizing: border-box; padding: 0 2px; border: 0; border-bottom: 1px solid #1A1A1A; background: transparent; color: #1A1A1A; font-family: 'Source Serif 4', Georgia, serif; font-size: 1.15rem; letter-spacing: 0; text-transform: none; font-weight: 400; flex: 1; min-width: 0">
+<button type="button" id="link-btn" class="ed-btn" style="flex: none; min-height: 44px; padding: 0 18px; border: 1px solid #1A1A1A; background: #1A1A1A; color: #F6F2EA; font-family: 'Inter Tight', system-ui, sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer">Use link</button>
+</div>
+<p style="margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 0.95rem; color: #5A544C; font-size: 0.88rem">We'll grab the store's product photo so the AI sees the item on its own. The link is also saved with your try-on.</p>
+</div>
 <label style="display: flex; flex-direction: column; gap: 6px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase">What is it?
 <select id="category" class="ed-field" style="min-height: 44px; box-sizing: border-box; padding: 0 2px; border: 0; border-bottom: 1px solid #1A1A1A; background: transparent; color: #1A1A1A; font-family: 'Source Serif 4', Georgia, serif; font-size: 1.2rem; letter-spacing: 0; text-transform: none">
 <option value="auto">Let Worn decide</option><option value="tops">A top (shirt, jacket, sweater)</option><option value="bottoms">Bottoms (pants, skirt, shorts)</option><option value="one-pieces">A full outfit (dress, jumpsuit)</option>
 </select></label>
 <p style="margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 0.95rem; color: #5A544C">Works best with a clear photo of just the item, laid flat or worn by a model.</p>
 </section>
+</div>
+
+<section style="width: 100%; display: flex; flex-direction: column; gap: 18px; margin-top: 8px">
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid #1A1A1A"><h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: clamp(1.8rem, 3vw, 2.4rem); line-height: 1.1">Fine-Tune <span style="font-size: 0.55em; font-style: italic; color: #5A544C">(optional)</span></h2><span style="font-size: 0.75rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #8A5A2B">No. 03</span></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px 32px">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase">The photo shows
+<select id="photo-type" class="ed-field" style="min-height: 44px; box-sizing: border-box; padding: 0 2px; border: 0; border-bottom: 1px solid #1A1A1A; background: transparent; color: #1A1A1A; font-family: 'Source Serif 4', Georgia, serif; font-size: 1.15rem; letter-spacing: 0; text-transform: none; font-weight: 400"><option value="auto">Let Worn decide</option><option value="flat-lay">Just the item (laid flat or on a hanger)</option><option value="model">The item worn by a model</option></select></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase">Your size <span style="font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 0.9rem; font-weight: 400; letter-spacing: 0; text-transform: none; color: #5A544C">saved for your reference</span>
+<input id="size-input" class="ed-field" type="text" maxlength="20" autocomplete="off" placeholder="e.g. M, 32x30, 8" list="size-options" style="min-height: 44px; box-sizing: border-box; padding: 0 2px; border: 0; border-bottom: 1px solid #1A1A1A; background: transparent; color: #1A1A1A; font-family: 'Source Serif 4', Georgia, serif; font-size: 1.15rem; letter-spacing: 0; text-transform: none; font-weight: 400">
+<datalist id="size-options"><option value="XS"></option><option value="S"></option><option value="M"></option><option value="L"></option><option value="XL"></option><option value="XXL"></option></datalist></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase">How should it fit?
+<select id="fit-select" class="ed-field" style="min-height: 44px; box-sizing: border-box; padding: 0 2px; border: 0; border-bottom: 1px solid #1A1A1A; background: transparent; color: #1A1A1A; font-family: 'Source Serif 4', Georgia, serif; font-size: 1.15rem; letter-spacing: 0; text-transform: none; font-weight: 400"><option value="as-pictured">As pictured</option><option value="fitted">Fitted, close to the body</option><option value="relaxed">Relaxed, a little loose</option><option value="oversized">Oversized, roomy</option></select></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase">Styling note
+<input id="style-input" class="ed-field" type="text" maxlength="120" autocomplete="off" placeholder="e.g. tucked in, sleeves rolled up" style="min-height: 44px; box-sizing: border-box; padding: 0 2px; border: 0; border-bottom: 1px solid #1A1A1A; background: transparent; color: #1A1A1A; font-family: 'Source Serif 4', Georgia, serif; font-size: 1.15rem; letter-spacing: 0; text-transform: none; font-weight: 400"></label>
+</div>
+<p style="margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 0.95rem; color: #5A544C">The AI drapes the item on the body in your photo, so it can't show exact sizing. Your size is saved with the try-on so you remember what you were considering. Fit and styling notes guide how the piece is worn in the image.</p>
+</section>
+
+<div role="note" style="width: 100%; max-width: 640px; box-sizing: border-box; margin-top: 16px; padding: 16px 20px; border: 1px solid #8A5A2B; border-left-width: 1px; background: #FBF8F2; display: flex; gap: 14px; align-items: flex-start">
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8A5A2B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px"><path d="M12 3 2 20h20L12 3z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg>
+<p style="margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-size: 1.02rem; line-height: 1.5; color: #1A1A1A"><strong style="font-family: 'Inter Tight', system-ui, sans-serif; font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; color: #8A5A2B">Please note</strong><br>Try-ons are final. If you're unhappy with how one turns out, you can't get that try-on back. It still counts toward your daily limit.</p>
 </div>
 
 <button type="button" id="go-btn" class="ed-btn" style="margin-top: 16px; display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 60px; box-sizing: border-box; padding: 0 44px; border: 1px solid #1A1A1A; background: #1A1A1A; color: #F6F2EA; font-family: 'Inter Tight', system-ui, sans-serif; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; cursor: pointer"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"></path></svg> Try It On</button>
@@ -128,7 +157,7 @@ a{color:#1A1A1A}a:hover{color:#000000}
     var youFrame = document.getElementById('you-frame');
     var pick = document.getElementById('garment-pick'), input = document.getElementById('garment-input');
     var usageEl = document.getElementById('usage');
-    var garmentFile = null, busy = false, blocked = false;
+    var garmentFile = null, linkGarment = null, busy = false, blocked = false;
 
     function setImg(frame, src, alt) {
       frame.innerHTML = '';
@@ -222,11 +251,43 @@ a{color:#1A1A1A}a:hover{color:#000000}
       if (!f) return;
       if (!/^image\//.test(f.type)) return worn.say(msg, 'Please choose an image file (JPG, PNG, WebP, or HEIC).', 'error');
       if (f.size > 10 * 1024 * 1024) return worn.say(msg, 'That photo is over 10 MB. Please choose a smaller one.', 'error');
-      garmentFile = f;
+      garmentFile = f; linkGarment = null;
       setImg(pick, URL.createObjectURL(f), 'The clothing item you chose');
       pick.setAttribute('aria-label', 'Change the clothing photo');
       worn.say(msg, '', 'info');
     });
+
+
+    // Paste a store link: the server fetches the product photo and saves a private copy
+    var linkInput = document.getElementById('link-input'), linkBtn = document.getElementById('link-btn');
+    function linkValue() {
+      var v = linkInput.value.trim();
+      if (!v) return '';
+      if (!/^https?:\/\//i.test(v)) v = 'https://' + v;
+      try { var u = new URL(v); return (u.protocol === 'https:' || u.protocol === 'http:') ? u.href : ''; } catch (e) { return ''; }
+    }
+    async function useLink() {
+      if (busy || blocked) return;
+      var v = linkValue();
+      if (!v) return worn.say(msg, 'Please paste a full web address, like https://store.com/item.', 'error');
+      setBusy(true); linkBtn.disabled = true; linkBtn.style.opacity = '0.6';
+      worn.say(msg, 'Getting the product photo from that link…', 'info');
+      try {
+        var got = await callFn({ action: 'fetch_link', url: v });
+        var view = await tryBucket.createSignedUrl(got.garment_path, 3600);
+        linkGarment = { path: got.garment_path, url: v };
+        garmentFile = null;
+        setImg(pick, view.data.signedUrl, 'The clothing item from ' + got.host);
+        pick.setAttribute('aria-label', 'Change the clothing photo');
+        worn.say(msg, 'Got the photo from ' + got.host + '. If it shows the wrong thing, upload a photo instead.', 'ok');
+      } catch (err) {
+        worn.say(msg, err.message, 'error');
+      } finally {
+        setBusy(false); linkBtn.disabled = false; linkBtn.style.opacity = '';
+      }
+    }
+    linkBtn.addEventListener('click', useLink);
+    linkInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); useLink(); } });
 
     async function callFn(body) {
       var res = await db.functions.invoke('try-on', { body: body });
@@ -243,17 +304,31 @@ a{color:#1A1A1A}a:hover{color:#000000}
     var resultSection = document.getElementById('result-section');
     goBtn.addEventListener('click', async function () {
       if (busy || blocked) return;
-      if (!garmentFile) return worn.say(msg, 'Add a photo of the clothing item first.', 'error');
+      if (!garmentFile && !linkGarment) return worn.say(msg, 'Add a photo of the clothing item, or paste a link to it, first.', 'error');
       setBusy(true);
       resultSection.hidden = true;
       try {
-        worn.say(msg, 'Uploading the item…', 'info');
-        var ext = (garmentFile.name.split('.').pop() || 'jpg').toLowerCase().replace(/[^a-z0-9]/g, '') || 'jpg';
-        var path = user.id + '/garments/' + Date.now() + '-' + Math.random().toString(36).slice(2, 8) + '.' + ext;
-        var up = await tryBucket.upload(path, garmentFile, { contentType: garmentFile.type });
-        if (up.error) throw up.error;
+        var path;
+        if (linkGarment) {
+          path = linkGarment.path;
+        } else {
+          worn.say(msg, 'Uploading the item…', 'info');
+          var ext = (garmentFile.name.split('.').pop() || 'jpg').toLowerCase().replace(/[^a-z0-9]/g, '') || 'jpg';
+          path = user.id + '/garments/' + Date.now() + '-' + Math.random().toString(36).slice(2, 8) + '.' + ext;
+          var up = await tryBucket.upload(path, garmentFile, { contentType: garmentFile.type });
+          if (up.error) throw up.error;
+        }
 
-        var started = await callFn({ action: 'start', garment_path: path, category: document.getElementById('category').value });
+        var started = await callFn({
+          action: 'start',
+          garment_path: path,
+          category: document.getElementById('category').value,
+          photo_type: document.getElementById('photo-type').value,
+          size: document.getElementById('size-input').value.trim(),
+          fit: document.getElementById('fit-select').value,
+          style_note: document.getElementById('style-input').value.trim(),
+          source_url: (linkGarment && linkGarment.url) || linkValue()
+        });
         refreshUsage();
         var t0 = Date.now(), status = 'processing', failMsg = '';
         while (status === 'processing') {
@@ -280,7 +355,7 @@ a{color:#1A1A1A}a:hover{color:#000000}
 
     var againBtn = document.getElementById('again-btn');
     if (againBtn) againBtn.addEventListener('click', function () {
-      garmentFile = null; pick.innerHTML = '+ Add a photo of the item'; pick.style.borderStyle = 'dashed';
+      garmentFile = null; linkGarment = null; pick.innerHTML = '+ Add a photo of the item'; pick.style.borderStyle = 'dashed';
       resultSection.hidden = true; worn.say(msg, '', 'info');
       pick.scrollIntoView({ behavior: 'smooth', block: 'center' }); pick.focus();
     });
