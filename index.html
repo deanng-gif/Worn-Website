@@ -49,6 +49,7 @@ a{color:#1A1A1A}a:hover{color:#000000}
 
 <section style="max-width: 1280px; margin: 0 auto; box-sizing: border-box; padding: clamp(40px, 6vw, 88px) 32px; display: flex; flex-wrap: wrap; align-items: center; gap: clamp(40px, 6vw, 96px)">
 <div style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 28px">
+<p id="welcome-msg" hidden style="margin: 0 0 -12px; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(1.3rem, 2.2vw, 1.7rem); line-height: 1.2; color: #1A1A1A"></p>
 <p style="margin: 0; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #8A5A2B">By: Dean Nguyen</p>
 <h1 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: clamp(3.2rem, 7.5vw, 6.6rem); line-height: 0.98; letter-spacing: -0.015em">Skip the hassle, <em style="font-style: italic">see how it's</em> <span style="font-family: 'Yellowtail', cursive; font-size: 1.12em; color: #8A5A2B">Worn</span>.</h1>
 <div style="width: 64px; height: 1px; background: #1A1A1A"></div>
@@ -121,5 +122,22 @@ a{color:#1A1A1A}a:hover{color:#000000}
 </footer>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script>
+  // Greet signed-in visitors by name. Visitors who aren't logged in see nothing extra.
+  (async function () {
+    if (!window.worn || !worn.ready) return;
+    var user = await worn.getUser();
+    if (!user) return;
+    var res = await worn.client.from('profiles').select('first_name,last_name').eq('id', user.id).maybeSingle();
+    var p = res.data || {};
+    var name = [p.first_name, p.last_name].filter(Boolean).join(' ');
+    var el = document.getElementById('welcome-msg');
+    el.textContent = name ? 'Welcome back, ' + name : 'Welcome back';
+    el.hidden = false;
+  })();
+</script>
 </body>
 </html>
