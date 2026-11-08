@@ -25,6 +25,14 @@ a{color:#1A1A1A}a:hover{color:#000000}
 .ed-slot:hover{border-color:#8A5A2B !important;color:#8A5A2B !important}
 @media (prefers-reduced-motion: reduce){.ed-link,.ed-btn,.ed-field,.ed-slot{transition:none}}
 @media (max-width: 640px){.masthead{grid-template-columns:1fr auto !important;row-gap:0 !important}.masthead .wordmark{grid-column:1 / -1;grid-row:1}}
+.photo-slot{transition:border-color .2s,background-color .2s,opacity .2s}
+.photo-slot.drag-over{border-color:#8A5A2B !important;border-style:solid !important;background:#ECE4D6 !important}
+.photo-slot.busy,.slot-move.busy{opacity:.45;cursor:progress !important}
+.photo-slot:focus-visible,.slot-move:focus-visible{outline:2px solid #1A1A1A;outline-offset:3px}
+.slot-move{transition:background-color .2s,color .2s}
+.slot-move:hover:not(:disabled){background:#1A1A1A !important;color:#F6F2EA !important}
+.slot-move:disabled{opacity:.3;cursor:default !important}
+@media (prefers-reduced-motion: reduce){.photo-slot,.slot-move{transition:none}}
 </style>
 </head>
 <body>
@@ -65,13 +73,36 @@ a{color:#1A1A1A}a:hover{color:#000000}
 <span style="font-size: 0.75rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #8A5A2B">No. 01</span>
 </div>
 <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px">
-<div class="ed-slot" id="slot-front" style="aspect-ratio: 3 / 4; border: 1px dashed rgba(26, 26, 26, 0.45); background: #FBF8F2; display: flex; align-items: center; justify-content: center; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 1rem; color: #5A544C">[Front]</div>
-<div class="ed-slot" id="slot-side" style="aspect-ratio: 3 / 4; border: 1px dashed rgba(26, 26, 26, 0.45); background: #FBF8F2; display: flex; align-items: center; justify-content: center; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 1rem; color: #5A544C">[Side]</div>
-<div class="ed-slot" id="slot-back" style="aspect-ratio: 3 / 4; border: 1px dashed rgba(26, 26, 26, 0.45); background: #FBF8F2; display: flex; align-items: center; justify-content: center; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 1rem; color: #5A544C">[Back]</div>
+<div class="photo-cell" style="display: flex; flex-direction: column; gap: 8px">
+<span style="text-align: center; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase">Front</span>
+<button type="button" class="ed-slot photo-slot" id="slot-front" data-view="front" aria-label="Add front photo" style="aspect-ratio: 3 / 4; width: 100%; padding: 0; border: 1px dashed rgba(26, 26, 26, 0.45); background: #FBF8F2; display: flex; align-items: center; justify-content: center; overflow: hidden; cursor: pointer; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 0.95rem; color: #5A544C">+ Add</button>
+<div style="display: flex; gap: 6px">
+<button type="button" class="slot-move" data-view="front" data-dir="-1" aria-label="Move front photo left" disabled style="flex: 1; min-height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid #1A1A1A; background: transparent; color: #1A1A1A; cursor: pointer"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg></button>
+<button type="button" class="slot-move" data-view="front" data-dir="1" aria-label="Move front photo right" disabled style="flex: 1; min-height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid #1A1A1A; background: transparent; color: #1A1A1A; cursor: pointer"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></button>
 </div>
+</div>
+<div class="photo-cell" style="display: flex; flex-direction: column; gap: 8px">
+<span style="text-align: center; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase">Side</span>
+<button type="button" class="ed-slot photo-slot" id="slot-side" data-view="side" aria-label="Add side photo" style="aspect-ratio: 3 / 4; width: 100%; padding: 0; border: 1px dashed rgba(26, 26, 26, 0.45); background: #FBF8F2; display: flex; align-items: center; justify-content: center; overflow: hidden; cursor: pointer; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 0.95rem; color: #5A544C">+ Add</button>
+<div style="display: flex; gap: 6px">
+<button type="button" class="slot-move" data-view="side" data-dir="-1" aria-label="Move side photo left" disabled style="flex: 1; min-height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid #1A1A1A; background: transparent; color: #1A1A1A; cursor: pointer"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg></button>
+<button type="button" class="slot-move" data-view="side" data-dir="1" aria-label="Move side photo right" disabled style="flex: 1; min-height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid #1A1A1A; background: transparent; color: #1A1A1A; cursor: pointer"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></button>
+</div>
+</div>
+<div class="photo-cell" style="display: flex; flex-direction: column; gap: 8px">
+<span style="text-align: center; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase">Back</span>
+<button type="button" class="ed-slot photo-slot" id="slot-back" data-view="back" aria-label="Add back photo" style="aspect-ratio: 3 / 4; width: 100%; padding: 0; border: 1px dashed rgba(26, 26, 26, 0.45); background: #FBF8F2; display: flex; align-items: center; justify-content: center; overflow: hidden; cursor: pointer; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 0.95rem; color: #5A544C">+ Add</button>
+<div style="display: flex; gap: 6px">
+<button type="button" class="slot-move" data-view="back" data-dir="-1" aria-label="Move back photo left" disabled style="flex: 1; min-height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid #1A1A1A; background: transparent; color: #1A1A1A; cursor: pointer"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg></button>
+<button type="button" class="slot-move" data-view="back" data-dir="1" aria-label="Move back photo right" disabled style="flex: 1; min-height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid #1A1A1A; background: transparent; color: #1A1A1A; cursor: pointer"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></button>
+</div>
+</div>
+</div>
+<p style="margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 0.95rem; color: #5A544C">Tap a slot to add or replace that photo. To fix the order, use the arrows or drag one photo onto another to swap them. Only you can see these photos.</p>
 <input type="file" id="photo-input" accept="image/jpeg,image/png,image/webp,image/heic" multiple hidden>
-<button type="button" id="upload-btn" class="ed-btn" style="min-height: 52px; border: 1px solid #1A1A1A; background: #1A1A1A; color: #F6F2EA; font-family: 'Inter Tight', system-ui, sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer">Upload photos</button>
-<p id="photo-msg" role="status" aria-live="polite" style="margin: -8px 0 0; min-height: 22px; font-family: 'Source Serif 4', Georgia, serif; font-size: 1rem"></p><p style="margin: -8px 0 0; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 0.95rem; color: #5A544C">Choose up to 3 photos, in order: front, side, back. Only you can see them.</p>
+<input type="file" id="slot-input" accept="image/jpeg,image/png,image/webp,image/heic" hidden>
+<button type="button" id="upload-btn" class="ed-btn" style="min-height: 52px; border: 1px solid #1A1A1A; background: #1A1A1A; color: #F6F2EA; font-family: 'Inter Tight', system-ui, sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer">Upload several at once</button>
+<p id="photo-msg" role="status" aria-live="polite" style="margin: -8px 0 0; min-height: 22px; font-family: 'Source Serif 4', Georgia, serif; font-size: 1rem"></p>
 </section>
 
 <section style="display: flex; flex-direction: column; gap: 22px">
@@ -173,21 +204,141 @@ a{color:#1A1A1A}a:hover{color:#000000}
 
     // Photos live in a private bucket under <user id>/front|side|back
     var slots = ['front', 'side', 'back'];
+    var bucket = db.storage.from(worn.PHOTO_BUCKET);
+    var have = { front: false, side: false, back: false };
+    var busy = false;
+    var pathOf = function (v) { return user.id + '/' + v; };
+    var slotEl = function (v) { return document.getElementById('slot-' + v); };
+    var moveBtns = Array.prototype.slice.call(document.querySelectorAll('.slot-move'));
+
+    function refreshControls() {
+      slots.forEach(function (v) { slotEl(v).classList.toggle('busy', busy); });
+      moveBtns.forEach(function (b) {
+        var idx = slots.indexOf(b.dataset.view) + Number(b.dataset.dir);
+        b.disabled = busy || !have[b.dataset.view] || idx < 0 || idx >= slots.length;
+        b.classList.toggle('busy', busy);
+      });
+    }
+    function setBusy(on) { busy = on; refreshControls(); }
+
     async function showPhotos() {
+      var listed = await bucket.list(user.id, { limit: 50 });
+      var names = (listed.data || []).map(function (o) { return o.name; });
       for (var i = 0; i < slots.length; i++) {
-        var slotEl = document.getElementById('slot-' + slots[i]);
-        var signed = await db.storage.from(worn.PHOTO_BUCKET).createSignedUrl(user.id + '/' + slots[i], 3600);
-        if (signed.data && signed.data.signedUrl) {
-          slotEl.innerHTML = '';
-          var img = document.createElement('img');
-          img.src = signed.data.signedUrl + '&t=' + Date.now();
-          img.alt = 'Your ' + slots[i] + ' photo';
-          img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block';
-          slotEl.appendChild(img);
-          slotEl.style.borderStyle = 'solid';
+        var v = slots[i], el = slotEl(v);
+        have[v] = names.indexOf(v) !== -1;
+        if (have[v]) {
+          var signed = await bucket.createSignedUrl(pathOf(v), 3600);
+          if (signed.data && signed.data.signedUrl) {
+            var img = document.createElement('img');
+            img.src = signed.data.signedUrl + '&t=' + Date.now();
+            img.alt = 'Your ' + v + ' photo';
+            img.draggable = false;
+            img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;pointer-events:none';
+            el.innerHTML = ''; el.appendChild(img);
+          }
+          el.style.borderStyle = 'solid';
+          el.draggable = true;
+          el.setAttribute('aria-label', 'Replace ' + v + ' photo');
+        } else {
+          el.textContent = '+ Add';
+          el.style.borderStyle = 'dashed';
+          el.draggable = false;
+          el.setAttribute('aria-label', 'Add ' + v + ' photo');
         }
       }
+      refreshControls();
     }
+
+    function checkFile(file) {
+      if (!/^image\//.test(file.type)) return 'Please choose an image file (JPG, PNG, WebP, or HEIC).';
+      if (file.size > 10 * 1024 * 1024) return file.name + ' is over 10 MB. Please choose a smaller photo.';
+      return '';
+    }
+
+    async function uploadTo(v, file) {
+      var problem = checkFile(file);
+      if (problem) return worn.say(photoMsg, problem, 'error');
+      setBusy(true);
+      worn.say(photoMsg, 'Saving your ' + v + ' photo…', 'info');
+      var r = await bucket.upload(pathOf(v), file, { upsert: true, contentType: file.type });
+      setBusy(false);
+      if (r.error) return worn.say(photoMsg, worn.friendlyError(r.error), 'error');
+      worn.say(photoMsg, v.charAt(0).toUpperCase() + v.slice(1) + ' photo saved.', 'ok');
+      await showPhotos();
+    }
+
+    async function mv(from, to) {
+      var r = await bucket.move(from, to);
+      if (r.error) throw r.error;
+    }
+
+    // Swap the photos in two slots (or move one into an empty slot).
+    async function swap(a, b) {
+      if (a === b || busy || (!have[a] && !have[b])) return;
+      setBusy(true);
+      worn.say(photoMsg, 'Rearranging…', 'info');
+      try {
+        if (have[a] && have[b]) {
+          var tmp = user.id + '/tmp-' + Date.now();
+          await mv(pathOf(a), tmp);
+          await mv(pathOf(b), pathOf(a));
+          await mv(tmp, pathOf(b));
+        } else if (have[a]) {
+          await mv(pathOf(a), pathOf(b));
+        } else {
+          await mv(pathOf(b), pathOf(a));
+        }
+        worn.say(photoMsg, 'Order updated.', 'ok');
+      } catch (err) {
+        worn.say(photoMsg, worn.friendlyError(err), 'error');
+      } finally {
+        setBusy(false);
+        await showPhotos();
+      }
+    }
+
+    // Click a slot: add or replace just that photo
+    var slotInput = document.getElementById('slot-input');
+    var pickFor = null;
+    slots.forEach(function (v) {
+      var el = slotEl(v);
+      el.addEventListener('click', function () { if (busy) return; pickFor = v; slotInput.click(); });
+
+      // Drag one photo onto another to swap; or drop an image file from your computer
+      el.addEventListener('dragstart', function (e) {
+        if (!have[v] || busy) { e.preventDefault(); return; }
+        e.dataTransfer.setData('text/plain', 'worn-slot:' + v);
+        e.dataTransfer.effectAllowed = 'move';
+      });
+      el.addEventListener('dragover', function (e) { e.preventDefault(); el.classList.add('drag-over'); });
+      el.addEventListener('dragleave', function () { el.classList.remove('drag-over'); });
+      el.addEventListener('drop', function (e) {
+        e.preventDefault();
+        el.classList.remove('drag-over');
+        if (busy) return;
+        if (e.dataTransfer.files && e.dataTransfer.files.length) return uploadTo(v, e.dataTransfer.files[0]);
+        var data = e.dataTransfer.getData('text/plain') || '';
+        if (data.indexOf('worn-slot:') === 0) swap(data.slice(10), v);
+      });
+    });
+    slotInput.addEventListener('change', function () {
+      var file = slotInput.files[0];
+      slotInput.value = '';
+      if (file && pickFor) uploadTo(pickFor, file);
+    });
+
+    // Arrow buttons swap with the neighbouring slot
+    moveBtns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var from = b.dataset.view, to = slots[slots.indexOf(from) + Number(b.dataset.dir)];
+        if (to) swap(from, to).then(function () {
+          var target = document.querySelector('.slot-move[data-view="' + to + '"][data-dir="' + b.dataset.dir + '"]');
+          if (target && !target.disabled) target.focus(); else slotEl(to).focus();
+        });
+      });
+    });
+
     showPhotos();
 
     // Subscription status (written only by the Stripe webhook; users can just read their own)
@@ -225,20 +376,24 @@ a{color:#1A1A1A}a:hover{color:#000000}
       if (!found) planDetail.textContent = 'Your payment went through. Your plan will appear here in a minute; try refreshing.';
     }
 
+    // Upload several at once: fills empty slots first (front, side, back), then replaces in order
     var input = document.getElementById('photo-input');
-    document.getElementById('upload-btn').addEventListener('click', function () { input.click(); });
+    document.getElementById('upload-btn').addEventListener('click', function () { if (!busy) input.click(); });
     input.addEventListener('change', async function () {
       var files = Array.prototype.slice.call(input.files, 0, 3);
+      input.value = '';
       if (!files.length) return;
+      for (var k = 0; k < files.length; k++) { var bad = checkFile(files[k]); if (bad) return worn.say(photoMsg, bad, 'error'); }
+      var order = slots.filter(function (v) { return !have[v]; }).concat(slots.filter(function (v) { return have[v]; }));
+      setBusy(true);
       worn.say(photoMsg, 'Uploading…', 'info');
       for (var i = 0; i < files.length; i++) {
-        if (files[i].size > 10 * 1024 * 1024) { worn.say(photoMsg, files[i].name + ' is over 10 MB. Please choose a smaller photo.', 'error'); return; }
-        var r = await db.storage.from(worn.PHOTO_BUCKET).upload(user.id + '/' + slots[i], files[i], { upsert: true, contentType: files[i].type });
-        if (r.error) { worn.say(photoMsg, worn.friendlyError(r.error), 'error'); return; }
+        var r = await bucket.upload(pathOf(order[i]), files[i], { upsert: true, contentType: files[i].type });
+        if (r.error) { setBusy(false); return worn.say(photoMsg, worn.friendlyError(r.error), 'error'); }
       }
-      input.value = '';
-      worn.say(photoMsg, 'Photos saved.', 'ok');
-      showPhotos();
+      setBusy(false);
+      worn.say(photoMsg, 'Photos saved. If any are in the wrong spot, use the arrows to swap them.', 'ok');
+      await showPhotos();
     });
 
     document.getElementById('logout-link').addEventListener('click', async function (e) {
