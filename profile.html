@@ -348,7 +348,7 @@ a{color:#1A1A1A}a:hover{color:#000000}
 
     // Saved try-ons: latest four results (private signed links)
     (async function () {
-      var r = await db.from('tryons').select('result_path,created_at').eq('user_id', user.id).eq('status', 'completed').order('created_at', { ascending: false }).limit(4);
+      var r = await db.from('tryons').select('id,result_path,created_at').eq('user_id', user.id).eq('status', 'completed').order('created_at', { ascending: false }).limit(4);
       var rows = (r.data || []).filter(function (x) { return x.result_path; });
       if (!rows.length) return;
       var signed = await db.storage.from('try-ons').createSignedUrls(rows.map(function (x) { return x.result_path; }), 3600);
@@ -356,8 +356,8 @@ a{color:#1A1A1A}a:hover{color:#000000}
         var url = signed.data && signed.data[i] && signed.data[i].signedUrl;
         var el = document.getElementById('tryon-' + (i + 1));
         if (!url || !el) return;
-        el.href = url; el.target = '_blank'; el.rel = 'noopener';
-        el.setAttribute('aria-label', 'Open try-on from ' + new Date(row.created_at).toLocaleDateString());
+        el.href = 'saved.html?id=' + encodeURIComponent(row.id);
+        el.setAttribute('aria-label', 'Open saved try-on from ' + new Date(row.created_at).toLocaleDateString());
         el.innerHTML = '';
         var img = document.createElement('img');
         img.src = url; img.alt = 'Try-on from ' + new Date(row.created_at).toLocaleDateString();

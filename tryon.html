@@ -170,7 +170,7 @@ a{color:#1A1A1A}a:hover{color:#000000}
     // Saved try-ons
     var historyEl = document.getElementById('history'), historyEmpty = document.getElementById('history-empty');
     async function refreshHistory() {
-      var r = await db.from('tryons').select('id,result_path,garment_path,created_at').eq('user_id', user.id).eq('status', 'completed').order('created_at', { ascending: false }).limit(12);
+      var r = await db.from('tryons').select('id,result_path,garment_path,notes,created_at').eq('user_id', user.id).eq('status', 'completed').order('created_at', { ascending: false }).limit(12);
       var rows = (r.data || []).filter(function (x) { return x.result_path; });
       historyEl.innerHTML = '';
       historyEmpty.hidden = rows.length > 0;
@@ -182,8 +182,8 @@ a{color:#1A1A1A}a:hover{color:#000000}
         var fig = document.createElement('figure');
         fig.style.cssText = 'margin:0;display:flex;flex-direction:column;gap:8px';
         var a = document.createElement('a');
-        a.href = url; a.target = '_blank'; a.rel = 'noopener';
-        a.setAttribute('aria-label', 'Open try-on from ' + new Date(row.created_at).toLocaleDateString());
+        a.href = 'saved.html?id=' + encodeURIComponent(row.id);
+        a.setAttribute('aria-label', 'Open saved try-on from ' + new Date(row.created_at).toLocaleDateString());
         a.style.cssText = 'display:block;aspect-ratio:3/4;border:1px solid #1A1A1A;overflow:hidden;background:#FBF8F2';
         var img = document.createElement('img');
         img.src = url; img.alt = 'Try-on from ' + new Date(row.created_at).toLocaleDateString();
@@ -199,7 +199,10 @@ a{color:#1A1A1A}a:hover{color:#000000}
           await db.from('tryons').delete().eq('id', row.id);
           refreshHistory();
         });
-        fig.appendChild(a); fig.appendChild(del);
+        var cap = document.createElement('figcaption');
+        cap.style.cssText = "font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-size:0.9rem;line-height:1.4;color:#5A544C;min-height:1.4em;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical";
+        cap.textContent = row.notes ? row.notes.replace(/\s+/g, ' ') : 'No notes yet';
+        fig.appendChild(a); fig.appendChild(cap); fig.appendChild(del);
         historyEl.appendChild(fig);
       });
     }
@@ -262,14 +265,9 @@ a{color:#1A1A1A}a:hover{color:#000000}
         }
         if (status !== 'completed') throw new Error(failMsg || 'The try-on could not be created.');
 
-        var row = await db.from('tryons').select('result_path').eq('id', started.id).single();
-        var view = await tryBucket.createSignedUrl(row.data.result_path, 3600);
-        var dl = await tryBucket.createSignedUrl(row.data.result_path, 3600, { download: 'worn-try-on.png' });
-        document.getElementById('result-img').src = view.data.signedUrl;
-        document.getElementById('result-download').href = dl.data.signedUrl;
-        resultSection.hidden = false;
-        worn.say(msg, 'Here you go! Saved to Your Try-Ons.', 'ok');
-        resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        worn.say(msg, 'Done! Opening your saved try-on…', 'ok');
+        location.href = 'saved.html?id=' + encodeURIComponent(started.id) + '&new=1';
+        return;
         refreshHistory();
       } catch (err) {
         worn.say(msg, err.message || worn.friendlyError(err), 'error');
@@ -280,7 +278,8 @@ a{color:#1A1A1A}a:hover{color:#000000}
       }
     });
 
-    document.getElementById('again-btn').addEventListener('click', function () {
+    var againBtn = document.getElementById('again-btn');
+    if (againBtn) againBtn.addEventListener('click', function () {
       garmentFile = null; pick.innerHTML = '+ Add a photo of the item'; pick.style.borderStyle = 'dashed';
       resultSection.hidden = true; worn.say(msg, '', 'info');
       pick.scrollIntoView({ behavior: 'smooth', block: 'center' }); pick.focus();
